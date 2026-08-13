@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { site } from "@/lib/site";
 import ThemeToggle from "./ThemeToggle";
+import WordMark from "./WordMark";
 
 const LINKS = [
   { href: "/#projects", label: "Projects" },
@@ -17,9 +17,8 @@ export default function Navbar() {
   return (
     <header className="site-header sticky top-0 z-40 border-b border-surface-border/60 bg-surface/80 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="font-display text-lg font-bold tracking-tight">
-          {site.name}
-          <span className="text-accent">.</span>
+        <Link href="/">
+          <WordMark />
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">

@@ -6,6 +6,7 @@ import ProjectCard from "@/components/ProjectCard";
 import SkillBadge from "@/components/SkillBadge";
 import Testimonials from "@/components/Testimonials";
 import EmailButton from "@/components/EmailButton";
+import ContactForm from "@/components/ContactForm";
 import { projects, site, highlights } from "@/lib/site";
 
 export default function HomePage() {
@@ -151,61 +152,24 @@ export default function HomePage() {
             <h2 className="font-display mt-2 text-4xl font-bold">Let&apos;s build something.</h2>
             <p className="mt-4 max-w-xl text-ink-muted">
               Have a project in mind — a store, a dashboard, a site that needs to actually work?
-              Reach out and I&apos;ll get back to you.
+              Fill in the form below and I&apos;ll get back to you.
+            </p>
+          </SectionReveal>
+
+          <SectionReveal delay={0.08} className="mt-10 rounded-lg border border-surface-border bg-surface-panel p-6">
+            <ContactForm />
+          </SectionReveal>
+
+          <SectionReveal delay={0.1} className="mt-10">
+            <p className="font-mono-tag text-xs uppercase tracking-wide text-ink-muted">
+              Prefer email directly?
             </p>
             <EmailButton
               email={site.email}
-              className="mt-8 inline-block rounded-md bg-accent px-6 py-3 font-mono-tag text-sm font-medium text-onaccent"
+              className="mt-3 inline-block rounded-md border border-surface-border px-6 py-3 font-mono-tag text-sm font-medium text-ink hover:border-accent"
             >
               Email {site.name}
             </EmailButton>
-          </SectionReveal>
-
-          <SectionReveal delay={0.1} className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div className="rounded-lg border border-surface-border bg-surface-panel p-5">
-              <p className="font-mono-tag text-xs uppercase tracking-wide text-ink-muted">
-                Email
-              </p>
-              <EmailButton email={site.email} className="mt-1 block text-sm text-ink hover:text-accent">
-                {site.email}
-              </EmailButton>
-            </div>
-            <div className="rounded-lg border border-surface-border bg-surface-panel p-5">
-              <p className="font-mono-tag text-xs uppercase tracking-wide text-ink-muted">
-                GitHub
-              </p>
-              <a
-                href={site.social.github}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-1 block text-sm text-ink hover:text-accent"
-              >
-                github.com/subhan-cloud
-              </a>
-            </div>
-            {site.social.linkedin && (
-              <div className="rounded-lg border border-surface-border bg-surface-panel p-5">
-                <p className="font-mono-tag text-xs uppercase tracking-wide text-ink-muted">
-                  LinkedIn
-                </p>
-                <a
-                  href={site.social.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-1 block text-sm text-ink hover:text-accent"
-                >
-                  Connect
-                </a>
-              </div>
-            )}
-            {site.location && (
-              <div className="rounded-lg border border-surface-border bg-surface-panel p-5">
-                <p className="font-mono-tag text-xs uppercase tracking-wide text-ink-muted">
-                  Based in
-                </p>
-                <p className="mt-1 text-sm text-ink-muted">{site.location}</p>
-              </div>
-            )}
           </SectionReveal>
         </div>
       </section>
