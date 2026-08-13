@@ -6,9 +6,10 @@ import { motion } from "framer-motion";
 import { site } from "@/lib/site";
 import { useSettings } from "@/context/SettingsContext";
 
+
 const Hero3D = dynamic(() => import("./Hero3D"), {
   ssr: false,
-  loading: () => null,
+  loading: () => <div className="h-full w-full" />,
 });
 
 function StaticWireframe() {
