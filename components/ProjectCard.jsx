@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Tilt from "react-parallax-tilt";
 import { useSettings } from "@/context/SettingsContext";
@@ -8,7 +9,20 @@ export default function ProjectCard({ project }) {
   const { reduceMotion } = useSettings();
 
   const card = (
-    <div className="group h-full rounded-xl border border-surface-border bg-surface-panel p-6 transition-shadow hover:shadow-2xl hover:shadow-accent/10">
+    <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-surface-border bg-surface-panel transition-shadow hover:shadow-2xl hover:shadow-accent/10">
+      {project.images?.[0] && (
+        <div className="relative aspect-video w-full overflow-hidden border-b border-surface-border bg-surface-soft">
+          <Image
+            src={project.images[0]}
+            alt={`${project.title} preview`}
+            fill
+            sizes="(max-width: 768px) 100vw, 400px"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+      )}
+
+      <div className="flex flex-1 flex-col p-6">
       <div className="mb-4 flex items-center justify-between">
         <span className="font-mono-tag text-xs uppercase tracking-wide text-accent">
           {project.tag}
@@ -42,6 +56,7 @@ export default function ProjectCard({ project }) {
         >
           Live Demo ↗
         </a>
+      </div>
       </div>
     </div>
   );

@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import { site } from "@/lib/site";
-import SettingsPanel from "./SettingsPanel";
+import ThemeToggle from "./ThemeToggle";
 
 const LINKS = [
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -32,7 +32,7 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
-          <SettingsPanel />
+          <ThemeToggle />
         </div>
 
         <button
@@ -58,7 +58,7 @@ export default function Navbar() {
                 {l.label}
               </Link>
             ))}
-            <SettingsPanel mobile />
+            <ThemeToggle mobile />
           </div>
         </div>
       )}

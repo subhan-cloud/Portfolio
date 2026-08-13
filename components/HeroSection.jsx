@@ -6,10 +6,9 @@ import { motion } from "framer-motion";
 import { site } from "@/lib/site";
 import { useSettings } from "@/context/SettingsContext";
 
-
 const Hero3D = dynamic(() => import("./Hero3D"), {
   ssr: false,
-  loading: () => <div className="h-full w-full" />,
+  loading: () => null,
 });
 
 function StaticWireframe() {
@@ -56,17 +55,17 @@ export default function HeroSection() {
           <p className="mt-6 max-w-md text-base text-ink-muted">{site.heroOneLiner}</p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="/projects"
+              href="/#projects"
               className="rounded-md bg-accent px-6 py-3 font-mono-tag text-sm font-medium text-onaccent transition-transform active:translate-y-0.5"
             >
               View Projects
             </Link>
-            <Link
-              href="/contact"
+            <a
+              href={`mailto:${site.email}`}
               className="rounded-md border border-surface-border px-6 py-3 font-mono-tag text-sm font-medium text-ink transition-colors hover:border-accent"
             >
               Contact Me
-            </Link>
+            </a>
           </div>
         </motion.div>
 
