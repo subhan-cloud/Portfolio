@@ -1,15 +1,12 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { site } from "@/lib/site";
 import { useSettings } from "@/context/SettingsContext";
-
-const Hero3D = dynamic(() => import("./Hero3D"), {
-  ssr: false,
-  loading: () => null,
-});
+import Hero3D from "./Hero3D";
+import EmailButton from "./EmailButton";
 
 function StaticWireframe() {
   return (
@@ -36,6 +33,11 @@ function StaticWireframe() {
 
 export default function HeroSection() {
   const { reduceMotion, ready } = useSettings();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section className="grid-bg relative overflow-hidden">
@@ -60,17 +62,17 @@ export default function HeroSection() {
             >
               View Projects
             </Link>
-            <a
-              href={`mailto:${site.email}`}
+            <EmailButton
+              email={site.email}
               className="rounded-md border border-surface-border px-6 py-3 font-mono-tag text-sm font-medium text-ink transition-colors hover:border-accent"
             >
               Contact Me
-            </a>
+            </EmailButton>
           </div>
         </motion.div>
 
         <div className="relative h-72 md:h-[420px]">
-          {!ready ? null : reduceMotion ? (
+          {!ready || !mounted ? null : reduceMotion ? (
             <StaticWireframe />
           ) : (
             <Hero3D reduceMotion={reduceMotion} />
