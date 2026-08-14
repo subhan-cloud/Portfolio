@@ -63,12 +63,12 @@ export default function HeroSection() {
             >
               View Projects
             </Link>
-            <EmailButton
-              email={site.email}
+            <Link
+              href="/contact"
               className="rounded-md border border-surface-border px-6 py-3 font-mono-tag text-sm font-medium text-ink transition-colors hover:border-accent"
             >
               Contact Me
-            </EmailButton>
+            </Link>
           </div>
         </motion.div>
 
@@ -81,7 +81,7 @@ export default function HeroSection() {
 
           {ready && mounted && (
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-              <div className="relative h-[55%] w-[55%] overflow-hidden rounded-full border-2 border-accent/60 shadow-lg shadow-accent/20">
+              {/* <div className="relative aspect-square h-[38%] max-h-40 overflow-hidden rounded-full border-2 border-accent/60 shadow-lg shadow-accent/20">
                 <Image
                   src={site.avatar}
                   alt={site.name}
@@ -89,7 +89,7 @@ export default function HeroSection() {
                   sizes="300px"
                   className="object-cover"
                 />
-              </div>
+              </div> */}
             </div>
           )}
         </div>

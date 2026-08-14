@@ -7,6 +7,7 @@ import SkillBadge from "@/components/SkillBadge";
 import Testimonials from "@/components/Testimonials";
 import EmailButton from "@/components/EmailButton";
 import ContactForm from "@/components/ContactForm";
+import Education from "@/components/Education";
 import { projects, site, highlights } from "@/lib/site";
 
 export default function HomePage() {
@@ -31,7 +32,8 @@ export default function HomePage() {
       </section>
 
       {/* ---------- About ---------- */}
-      <section id="about" className="mx-auto max-w-4xl scroll-mt-24 px-6 py-20">
+      <section id="about" className="scroll-mt-24 border-t border-surface-border/60">
+        <div className="mx-auto max-w-4xl px-6 py-20">
         <SectionReveal className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
           <Image
             src={site.avatar}
@@ -82,10 +84,15 @@ export default function HomePage() {
             of it, and every project I ship is live and checkable, not a local-only demo.
           </p>
         </SectionReveal>
+        </div>
       </section>
 
+      {/* ---------- Education ---------- */}
+      <Education />
+
       {/* ---------- Projects ---------- */}
-      <section id="projects" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-20">
+      <section id="projects" className="scroll-mt-24 border-t border-surface-border/60">
+        <div className="mx-auto max-w-6xl px-6 py-20">
         <SectionReveal className="mb-10 flex items-end justify-between">
           <div>
             <p className="font-mono-tag text-xs uppercase tracking-widest text-accent">
@@ -111,6 +118,7 @@ export default function HomePage() {
               <ProjectCard project={p} />
             </SectionReveal>
           ))}
+        </div>
         </div>
       </section>
 
