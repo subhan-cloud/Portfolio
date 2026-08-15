@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { site } from "@/lib/site";
 import { useSettings } from "@/context/SettingsContext";
 import Hero3D from "./Hero3D";
-import EmailButton from "./EmailButton";
+
 
 function StaticWireframe() {
   return (
@@ -90,6 +90,16 @@ export default function HeroSection() {
                   className="object-cover"
                 />
               </div> */}
+              <div className="relative h-full w-full max-w-sm">
+                <Image
+                  src={site.herocutout}
+                  alt={site.name}
+                  fill
+                  sizes="(max-width: 768px) 70vw, 340px"
+                  className="object-contain object-bottom"
+                  priority
+                />
+              </div>
             </div>
           )}
         </div>
