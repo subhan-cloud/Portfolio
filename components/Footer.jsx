@@ -23,6 +23,11 @@ export default function Footer() {
               LinkedIn
             </a>
           )}
+          {site.social.upwork && (
+            <a href={site.social.upwork} target="_blank" rel="noreferrer" className="hover:text-accent">
+              Upwork
+            </a>
+          )}
         </div>
       </div>
       <div className="border-t border-surface-border/60 px-6 py-4 text-center text-xs text-ink-muted">
